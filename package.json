@@ -1,0 +1,22 @@
+{
+  "name": "construction-harmony",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@supabase/supabase-js": "^2.50.2",
+    "body-parser": "^2.2.0",
+    "cors": "^2.8.5",
+    "date-fns": "^4.1.0",
+    "dotenv": "^17.0.0",
+    "express": "^5.1.0",
+    "googleapis": "^150.0.1"
+  }
+}
