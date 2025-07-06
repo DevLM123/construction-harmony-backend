@@ -10,7 +10,7 @@ exports.scheduleMeeting = async (req, res, next) => {
     return res.status(403).json({ error: "Not authorized with Google." });
   googleOAuth2Client.setCredentials(tokens);
 
-  const { name, email, date, startTime, endTime } = req.body;
+  const { name, email, date, startTime, endTime, service } = req.body;
   const calendar = google.calendar({ version: "v3", auth: googleOAuth2Client });
 
   try {
@@ -20,8 +20,8 @@ exports.scheduleMeeting = async (req, res, next) => {
       conferenceDataVersion: 1,
       sendUpdates: "all",
       requestBody: {
-        summary: `Consultation: ${name}`,
-        description: `Consultation with ${name}`,
+        summary: `${service}`,
+        description: `Meeting with ${name} to discuss ${service}`,
         start: { dateTime: startTime, timeZone: "America/New_York" },
         end: { dateTime: endTime, timeZone: "America/New_York" },
         attendees: [{ email: process.env.ADMIN_EMAIL }, { email }],
